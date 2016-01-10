@@ -29,6 +29,13 @@
   text-transform: uppercase;
 }
 
+.navbar .nav li a, .navbar .nav li button, .navbar-brand-img {
+  display: block;
+  height: 49px;
+  border-bottom: none;
+  margin: 0 6px 0 -10px;
+}
+
 .navbar .nav li a:hover, .navbar-brand:hover {
   color: #FFF !important;
 }

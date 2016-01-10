@@ -36,7 +36,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">{{ config.SITE_TITLE }}</a>
+          <a class="navbar-brand-img" href="/">
+            <img src="{{ url_for('static', filename='img/tanglu-logo_wiki.png') }}" alt="{{ config.SITE_TITLE }}" />
+          </a>
         </div>
         <div class="navbar-collapse collapse navbar-inverse-collapse">
           <ul class="nav navbar-nav">
