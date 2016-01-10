@@ -79,6 +79,24 @@ providers = {
             'email': 'email'
         },
         'token_name': 'access_token'
+    },
+    'tanglu-tracker': {
+        'oauth': dict(
+            request_token_params={'scope': 'whoami offline_access'},
+            base_url='https://tracker.tanglu.org',
+            request_token_url=None,
+            access_token_url='oauthserver/token/',
+            access_token_method='POST',
+            authorize_url='https://tracker.tanglu.org/oauthserver/auth/'
+        ),
+        'button': '<a href="/login/oauth/tanglu-tracker" class="btn btn-tanglu"><i class="fa fa-space-shuttle">&nbsp;Login with your Tanglu account</i></a>',
+        'profile': 'api/user.whoami',
+        'field_map': {
+            'id': 'userName',
+            'username': 'realName',
+            'email': 'primaryEmail'
+        },
+        'token_name': 'access_token'
     }
 }
 
@@ -112,6 +130,9 @@ class User(BaseUser):
         field_map = providers.get(provider).get('field_map')
         if not field_map:
             raise NotImplementedError
+
+        if data.get('result'):
+            data = data['result']
 
         def get_value(d, key):
             if isinstance(key, basestring):
@@ -170,4 +191,4 @@ class User(BaseUser):
                 continue
             buttons.append(val.get('button'))
 
-        return "<h3>Social Login</h3>" + " ".join(buttons)
+        return "<h3>Login</h3>" + " ".join(buttons)

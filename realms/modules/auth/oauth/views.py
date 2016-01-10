@@ -32,7 +32,11 @@ def callback(provider):
     oauth_token = resp.get(User.get_provider_value(provider, 'token_name'))
     session[provider + "_token"] = (oauth_token, '')
     profile = User.get_provider_value(provider, 'profile')
-    data = remote_app.get(profile).data if profile else resp
+    data = remote_app.get(profile, data={'access_token': oauth_token}).data if profile else resp
+
+    if data.get('error_info'):
+            flash('Access denied: ' + data['error_info'], 'error')
+            return redirect(next_url)
 
     User.auth(provider, data, oauth_token)
 

@@ -249,6 +249,12 @@ a.label {
   color: #ffffff;
 }
 
+.btn-tanglu {
+  background-color: #6e6e6e;
+  color: #ffffff;
+  font-size: 1.40em;
+}
+
 @media (max-width:1000px) {
   .ace_content {
     padding: 3px;
