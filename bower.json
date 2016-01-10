@@ -6,7 +6,7 @@
     "components-font-awesome": "~4.2.0",
     "jquery": "~1.11.1",
     "highlightjs": "~8.0.0",
-    "handlebars": "~2.0.0",
+    "handlebars": "~4.0.5",
     "keymaster": "madrobby/keymaster",
     "ace-builds": "~1.1.6",
     "parsleyjs": "~2.0.3",
